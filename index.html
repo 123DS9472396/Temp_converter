@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter App by Deepesh Sharma</title>
+    <style>
+        * {
+            font-size: 20px;
+            font-family: 'Arial', sans-serif;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 40px;
+            width: 400px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            color: #333;
+        }
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 22px;
+            color: #444;
+        }
+        input {
+            font-size: 24px;
+            padding: 12px;
+            width: 90%;
+            margin: 15px 0;
+            border-radius: 10px;
+            border: 2px solid #0072ff;
+            text-align: center;
+            outline: none;
+            transition: border-color 0.3s ease-in-out;
+        }
+        input:focus {
+            border-color: #00c6ff;
+        }
+        button {
+            font-size: 24px;
+            padding: 12px 25px;
+            background-color: #0072ff;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        button:hover {
+            background-color: #00c6ff;
+        }
+        footer {
+            font-size: 18px;
+            color: #333;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h1>Temperature Converter</h1>
+            <form>
+                <label for="celsius">Enter temp in Celsius (°C)</label><br/>
+                <input type="number" id="celsius" placeholder="Enter temperature in Celsius" step="0.01" oninput="convertToFahrenheit()" /><br/>
+
+                <label for="fahrenheit">Enter temp in Fahrenheit (°F)</label><br/>
+                <input type="number" id="fahrenheit" placeholder="Enter temperature in Fahrenheit" step="0.01" oninput="convertToCelsius()" /><br/>
+            </form>
+            <footer>Deepesh Sharma</footer>
+        </div>
+    </div>
+
+    <script>
+        // Function to convert Celsius to Fahrenheit
+        function convertToFahrenheit() {
+            const celsiusInput = document.getElementById("celsius");
+            const fahrenheitInput = document.getElementById("fahrenheit");
+
+            // If Celsius is entered, convert to Fahrenheit
+            if (celsiusInput.value !== "") {
+                const celsiusValue = parseFloat(celsiusInput.value);
+                const fahrenheitValue = (celsiusValue * 9 / 5) + 32;
+                fahrenheitInput.value = fahrenheitValue.toFixed(2);
+            }
+        }
+
+        // Function to convert Fahrenheit to Celsius
+        function convertToCelsius() {
+            const celsiusInput = document.getElementById("celsius");
+            const fahrenheitInput = document.getElementById("fahrenheit");
+
+            // If Fahrenheit is entered, convert to Celsius
+            if (fahrenheitInput.value !== "") {
+                const fahrenheitValue = parseFloat(fahrenheitInput.value);
+                const celsiusValue = (fahrenheitValue - 32) * 5 / 9;
+                celsiusInput.value = celsiusValue.toFixed(2);
+            }
+        }
+    </script>
+</body>
+</html>
